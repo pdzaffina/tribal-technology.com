@@ -1,0 +1,1296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tribal Technology — Sovereign Digital Strategy</title>
+<meta name="description" content="Tribal Technology is a digital strategy and technology consulting firm serving sovereign tribal nations. AI governance, data architecture, IT infrastructure, and policy compliance.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ── Reset & Base ──────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+
+:root {
+  --navy:      #0B1628;
+  --navy-mid:  #142240;
+  --navy-lt:   #1E3254;
+  --slate:     #2D4263;
+  --bronze:    #B07D3A;
+  --bronze-lt: #D4A055;
+  --bronze-pale: #F5ECD8;
+  --cream:     #F8F4EE;
+  --warm-white:#FDFBF8;
+  --stone:     #8C8278;
+  --stone-lt:  #C4BDB4;
+  --ink:       #1A1410;
+  --rule:      rgba(176,125,58,0.25);
+  --rule-lt:   rgba(176,125,58,0.12);
+
+  --ff-display: 'Cormorant Garamond', Georgia, serif;
+  --ff-body:    'DM Sans', system-ui, sans-serif;
+
+  --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+body {
+  background: var(--warm-white);
+  color: var(--ink);
+  font-family: var(--ff-body);
+  font-weight: 400;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ── Scrollbar ─────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--navy); }
+::-webkit-scrollbar-thumb { background: var(--bronze); border-radius: 2px; }
+
+/* ── Navigation ────────────────────────────────────────────────────── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 48px;
+  height: 68px;
+  background: rgba(11, 22, 40, 0.97);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(176,125,58,0.15);
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.nav-logo-mark {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+
+.nav-logo-text {
+  font-family: var(--ff-display);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--cream);
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+
+.nav-logo-text span {
+  color: var(--bronze-lt);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: var(--stone-lt);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--bronze-lt); }
+
+.nav-cta {
+  padding: 9px 22px;
+  background: transparent;
+  border: 1px solid var(--bronze);
+  color: var(--bronze-lt) !important;
+  border-radius: 2px;
+  transition: background 0.2s, color 0.2s !important;
+}
+
+.nav-cta:hover {
+  background: var(--bronze) !important;
+  color: var(--navy) !important;
+}
+
+/* ── Hero ──────────────────────────────────────────────────────────── */
+#home {
+  min-height: 100vh;
+  background: var(--navy);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 120px 48px 80px;
+}
+
+/* Geometric background pattern */
+.hero-pattern {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 1;
+}
+
+.hero-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 80px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.eyebrow-line {
+  width: 40px;
+  height: 1px;
+  background: var(--bronze);
+}
+
+.eyebrow-text {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--bronze-lt);
+  font-weight: 500;
+}
+
+h1 {
+  font-family: var(--ff-display);
+  font-size: clamp(44px, 5.5vw, 76px);
+  font-weight: 600;
+  line-height: 1.08;
+  color: var(--cream);
+  margin-bottom: 28px;
+}
+
+h1 em {
+  font-style: italic;
+  color: var(--bronze-lt);
+}
+
+.hero-body {
+  font-size: 17px;
+  color: var(--stone-lt);
+  line-height: 1.75;
+  font-weight: 300;
+  max-width: 540px;
+  margin-bottom: 44px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 32px;
+  background: var(--bronze);
+  color: var(--navy);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: background 0.2s, transform 0.2s;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary:hover { background: var(--bronze-lt); transform: translateY(-1px); }
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 32px;
+  background: transparent;
+  color: var(--cream);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  border: 1px solid rgba(248,244,238,0.2);
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.btn-secondary:hover { border-color: var(--bronze-lt); color: var(--bronze-lt); }
+
+/* Hero side card */
+.hero-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(176,125,58,0.2);
+  border-radius: 4px;
+  padding: 36px;
+  position: relative;
+}
+
+.hero-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px;
+  height: 60px;
+  background: var(--bronze);
+  border-radius: 0 0 2px 0;
+}
+
+.hero-card-label {
+  font-size: 9px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--bronze);
+  margin-bottom: 20px;
+}
+
+.hero-stat {
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(176,125,58,0.12);
+}
+
+.hero-stat:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.hero-stat-num {
+  font-family: var(--ff-display);
+  font-size: 42px;
+  font-weight: 700;
+  color: var(--bronze-lt);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.hero-stat-label {
+  font-size: 13px;
+  color: var(--stone-lt);
+  font-weight: 300;
+  line-height: 1.4;
+}
+
+/* Hero scroll indicator */
+.hero-scroll {
+  position: absolute;
+  bottom: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  opacity: 0.4;
+  z-index: 2;
+}
+
+.scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--bronze), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.4; transform: scaleY(1); }
+  50% { opacity: 1; transform: scaleY(1.2); }
+}
+
+.scroll-text {
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--bronze-lt);
+}
+
+/* ── Section Shared ────────────────────────────────────────────────── */
+section {
+  padding: 100px 48px;
+}
+
+.section-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-header {
+  margin-bottom: 64px;
+}
+
+.section-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.section-eyebrow-line {
+  width: 32px;
+  height: 1px;
+  background: var(--bronze);
+}
+
+.section-eyebrow-text {
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--bronze);
+  font-weight: 500;
+}
+
+h2 {
+  font-family: var(--ff-display);
+  font-size: clamp(34px, 4vw, 54px);
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--navy);
+}
+
+h2 em { font-style: italic; color: var(--bronze); }
+
+.section-intro {
+  font-size: 17px;
+  color: var(--stone);
+  line-height: 1.75;
+  font-weight: 300;
+  max-width: 600px;
+  margin-top: 16px;
+}
+
+/* ── Services ──────────────────────────────────────────────────────── */
+#services {
+  background: var(--cream);
+}
+
+#services h2 { color: var(--navy); }
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+  background: var(--rule);
+}
+
+.service-card {
+  background: var(--warm-white);
+  padding: 48px 44px;
+  position: relative;
+  transition: background 0.25s;
+  overflow: hidden;
+}
+
+.service-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  height: 2px;
+  width: 0;
+  background: var(--bronze);
+  transition: width 0.35s var(--ease);
+}
+
+.service-card:hover { background: var(--navy); }
+.service-card:hover::after { width: 100%; }
+.service-card:hover .service-num { color: var(--bronze); opacity: 1; }
+.service-card:hover h3 { color: var(--cream); }
+.service-card:hover .service-body { color: var(--stone-lt); }
+.service-card:hover .service-tags span { border-color: rgba(176,125,58,0.3); color: var(--stone-lt); }
+
+.service-num {
+  font-family: var(--ff-display);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--bronze);
+  opacity: 0.6;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+  transition: all 0.25s;
+}
+
+.service-icon {
+  font-size: 28px;
+  margin-bottom: 16px;
+  display: block;
+}
+
+h3 {
+  font-family: var(--ff-display);
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--navy);
+  line-height: 1.2;
+  margin-bottom: 14px;
+  transition: color 0.25s;
+}
+
+.service-body {
+  font-size: 15px;
+  color: var(--stone);
+  line-height: 1.7;
+  font-weight: 300;
+  margin-bottom: 24px;
+  transition: color 0.25s;
+}
+
+.service-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.service-tags span {
+  font-size: 10px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--stone);
+  border: 1px solid var(--rule);
+  padding: 4px 10px;
+  border-radius: 2px;
+  transition: all 0.25s;
+}
+
+/* Featured service — spans full width */
+.service-card.featured {
+  grid-column: span 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  background: var(--navy);
+}
+
+.service-card.featured h3 { color: var(--cream); font-size: 32px; }
+.service-card.featured .service-body { color: var(--stone-lt); }
+.service-card.featured .service-num { color: var(--bronze-lt); opacity: 1; }
+.service-card.featured .service-tags span { border-color: rgba(176,125,58,0.25); color: var(--stone-lt); }
+.service-card.featured::after { display: none; }
+
+.featured-visual {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.fv-item {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(176,125,58,0.15);
+  border-radius: 3px;
+  padding: 16px;
+}
+
+.fv-label {
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--bronze);
+  margin-bottom: 8px;
+}
+
+.fv-val {
+  font-family: var(--ff-display);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--cream);
+}
+
+/* ── About ─────────────────────────────────────────────────────────── */
+#about {
+  background: var(--warm-white);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.about-left {}
+
+.about-body {
+  font-size: 16px;
+  color: var(--stone);
+  line-height: 1.8;
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+
+.about-body strong { color: var(--ink); font-weight: 500; }
+
+.about-quote {
+  margin: 40px 0;
+  padding: 28px 32px;
+  border-left: 3px solid var(--bronze);
+  background: var(--cream);
+  border-radius: 0 3px 3px 0;
+}
+
+.about-quote-text {
+  font-family: var(--ff-display);
+  font-size: 22px;
+  font-style: italic;
+  color: var(--navy);
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.about-quote-attr {
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--bronze);
+}
+
+.about-right {}
+
+.principles-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.principle-item {
+  display: flex;
+  gap: 24px;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--rule-lt);
+  align-items: flex-start;
+}
+
+.principle-item:first-child { padding-top: 0; }
+.principle-item:last-child { border-bottom: none; }
+
+.principle-num {
+  font-family: var(--ff-display);
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--bronze);
+  opacity: 0.35;
+  line-height: 1;
+  flex-shrink: 0;
+  width: 44px;
+  text-align: right;
+}
+
+.principle-content {}
+
+.principle-title {
+  font-family: var(--ff-display);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+
+.principle-body {
+  font-size: 14px;
+  color: var(--stone);
+  line-height: 1.65;
+  font-weight: 300;
+}
+
+/* Assessment CTA strip */
+.assessment-strip {
+  margin-top: 64px;
+  background: var(--navy);
+  border-radius: 4px;
+  padding: 40px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  border: 1px solid rgba(176,125,58,0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.assessment-strip::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--bronze), transparent);
+}
+
+.strip-text {}
+
+.strip-label {
+  font-size: 9px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--bronze);
+  margin-bottom: 8px;
+}
+
+.strip-title {
+  font-family: var(--ff-display);
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--cream);
+  margin-bottom: 6px;
+}
+
+.strip-body {
+  font-size: 14px;
+  color: var(--stone-lt);
+  font-weight: 300;
+}
+
+/* ── Contact ───────────────────────────────────────────────────────── */
+#contact {
+  background: var(--navy);
+  color: var(--cream);
+}
+
+#contact h2 { color: var(--cream); }
+#contact h2 em { color: var(--bronze-lt); }
+#contact .section-eyebrow-line { background: var(--bronze); }
+#contact .section-eyebrow-text { color: var(--bronze-lt); }
+#contact .section-intro { color: var(--stone-lt); }
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--bronze-lt);
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(176,125,58,0.2);
+  border-radius: 2px;
+  padding: 12px 16px;
+  font-family: var(--ff-body);
+  font-size: 14px;
+  color: var(--cream);
+  transition: border-color 0.2s;
+  outline: none;
+  width: 100%;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--bronze);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder { color: var(--stone); }
+
+.form-group select option { background: var(--navy-mid); color: var(--cream); }
+
+.form-group textarea { resize: vertical; min-height: 120px; }
+
+.contact-details {
+  padding-top: 8px;
+}
+
+.contact-detail-item {
+  display: flex;
+  gap: 20px;
+  padding: 28px 0;
+  border-bottom: 1px solid rgba(176,125,58,0.12);
+  align-items: flex-start;
+}
+
+.contact-detail-item:first-child { padding-top: 0; }
+.contact-detail-item:last-child { border-bottom: none; }
+
+.cd-icon {
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(176,125,58,0.25);
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+  background: rgba(176,125,58,0.06);
+}
+
+.cd-label {
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--bronze);
+  margin-bottom: 4px;
+}
+
+.cd-value {
+  font-size: 15px;
+  color: var(--cream);
+  font-weight: 400;
+  margin-bottom: 2px;
+}
+
+.cd-note {
+  font-size: 12px;
+  color: var(--stone-lt);
+  font-weight: 300;
+}
+
+/* ── Footer ─────────────────────────────────────────────────────────── */
+footer {
+  background: var(--navy-mid);
+  border-top: 1px solid rgba(176,125,58,0.15);
+  padding: 40px 48px;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.footer-logo {
+  font-family: var(--ff-display);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--cream);
+}
+
+.footer-logo span { color: var(--bronze-lt); }
+
+.footer-center {
+  font-size: 12px;
+  color: var(--stone);
+  text-align: center;
+  line-height: 1.7;
+}
+
+.footer-links {
+  display: flex;
+  gap: 24px;
+}
+
+.footer-links a {
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--stone);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover { color: var(--bronze-lt); }
+
+/* ── Animations ─────────────────────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ── Mobile ─────────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  nav { padding: 0 24px; }
+  .nav-links { gap: 20px; }
+  .nav-links li:not(:last-child):not(:nth-last-child(2)) { display: none; }
+
+  section { padding: 72px 24px; }
+  #home { padding: 100px 24px 72px; }
+
+  .hero-content { grid-template-columns: 1fr; gap: 48px; }
+  .hero-card { display: none; }
+  .services-grid { grid-template-columns: 1fr; }
+  .service-card.featured { grid-column: span 1; grid-template-columns: 1fr; }
+  .featured-visual { display: none; }
+  .about-grid { grid-template-columns: 1fr; gap: 48px; }
+  .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+  .form-row { grid-template-columns: 1fr; }
+  .assessment-strip { flex-direction: column; text-align: center; }
+  footer { padding: 32px 24px; }
+  .footer-inner { flex-direction: column; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── Navigation ──────────────────────────────────────────────────── -->
+<nav>
+  <a href="#home" class="nav-logo">
+    <svg class="nav-logo-mark" viewBox="0 0 32 32" fill="none">
+      <polygon points="16,2 30,9 30,23 16,30 2,23 2,9" stroke="#B07D3A" stroke-width="1.5" fill="none"/>
+      <polygon points="16,7 25,11.5 25,20.5 16,25 7,20.5 7,11.5" stroke="#B07D3A" stroke-width="0.8" fill="rgba(176,125,58,0.08)"/>
+      <circle cx="16" cy="16" r="3" fill="#B07D3A" opacity="0.7"/>
+    </svg>
+    <span class="nav-logo-text">Tribal<span>Technology</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="https://assessment.tribal-technology.com" class="nav-cta">AI Assessment</a></li>
+  </ul>
+</nav>
+
+<!-- ── Hero ────────────────────────────────────────────────────────── -->
+<section id="home">
+  <svg class="hero-pattern" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+    <!-- Geometric grid pattern -->
+    <defs>
+      <pattern id="hex" x="0" y="0" width="80" height="92" patternUnits="userSpaceOnUse">
+        <polygon points="40,4 76,23 76,69 40,88 4,69 4,23" fill="none" stroke="rgba(176,125,58,0.07)" stroke-width="1"/>
+      </pattern>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#hex)"/>
+    <!-- Large decorative hexagon -->
+    <polygon points="1200,100 1380,200 1380,400 1200,500 1020,400 1020,200"
+      fill="none" stroke="rgba(176,125,58,0.08)" stroke-width="1.5"/>
+    <polygon points="1200,140 1340,220 1340,380 1200,460 1060,380 1060,220"
+      fill="none" stroke="rgba(176,125,58,0.05)" stroke-width="1"/>
+    <!-- Accent lines -->
+    <line x1="0" y1="900" x2="400" y2="400" stroke="rgba(176,125,58,0.06)" stroke-width="1"/>
+    <line x1="200" y1="900" x2="600" y2="400" stroke="rgba(176,125,58,0.04)" stroke-width="1"/>
+  </svg>
+
+  <div class="hero-content">
+    <div class="hero-left">
+      <div class="hero-eyebrow">
+        <div class="eyebrow-line"></div>
+        <span class="eyebrow-text">Sovereign Digital Strategy</span>
+      </div>
+
+      <h1>Technology on<br><em>sovereign terms</em></h1>
+
+      <p class="hero-body">
+        Tribal Technology partners with sovereign nations to build the digital infrastructure, data architecture, and governance frameworks that belong to them — fully and permanently.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#services" class="btn-primary">Explore Services</a>
+        <a href="#contact" class="btn-secondary">Start a Conversation</a>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <div class="hero-card-label">Our Practice Areas</div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">04</div>
+        <div class="hero-stat-label">Core service domains — from strategy to implementation</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">574+</div>
+        <div class="hero-stat-label">Federally recognized tribes we are built to serve</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">1st</div>
+        <div class="hero-stat-label">Sovereignty-first approach to tribal technology consulting</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span class="scroll-text">Scroll</span>
+  </div>
+</section>
+
+<!-- ── Services ────────────────────────────────────────────────────── -->
+<section id="services">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">
+        <div class="section-eyebrow-line"></div>
+        <span class="section-eyebrow-text">What We Do</span>
+      </div>
+      <h2>Four domains.<br><em>One mission.</em></h2>
+      <p class="section-intro">Every engagement is designed to build lasting internal capacity — so nations remain the expert in the room, not a dependent of outside vendors.</p>
+    </div>
+
+    <div class="services-grid">
+
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-num">01</div>
+        <span class="service-icon">🔷</span>
+        <h3>Digital Strategy &amp; Consulting</h3>
+        <p class="service-body">Long-range technology roadmaps grounded in tribal priorities — not vendor sales cycles. We help leadership make informed decisions about what to build, buy, and avoid.</p>
+        <div class="service-tags">
+          <span>Roadmapping</span>
+          <span>Vendor Selection</span>
+          <span>Policy Development</span>
+          <span>Leadership Advising</span>
+        </div>
+      </div>
+
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-num">02</div>
+        <span class="service-icon">🖧</span>
+        <h3>Tech Infrastructure &amp; IT</h3>
+        <p class="service-body">Resilient, tribally-owned digital infrastructure — networks, systems, and security architectures designed for sovereign operation and long-term independence from federal dependency.</p>
+        <div class="service-tags">
+          <span>Network Architecture</span>
+          <span>Cybersecurity</span>
+          <span>Cloud Strategy</span>
+          <span>Systems Integration</span>
+        </div>
+      </div>
+
+      <!-- Featured: Data Architecture -->
+      <div class="service-card featured reveal">
+        <div>
+          <div class="service-num">03</div>
+          <span class="service-icon">⬡</span>
+          <h3>Data Architecture &amp;<br>Tribal Data Repatriation</h3>
+          <p class="service-body">Your nation's data tells your story — and it belongs to you. We design data systems rooted in OCAP® principles and help nations identify, locate, and reclaim data held by federal agencies, state governments, and third-party vendors. From enrollment systems to health records, we connect tribes with their data.</p>
+          <div class="service-tags">
+            <span>OCAP® Implementation</span>
+            <span>Data Sovereignty Policy</span>
+            <span>Federal Data Repatriation</span>
+            <span>Warehouse Architecture</span>
+            <span>Governance Frameworks</span>
+          </div>
+        </div>
+        <div class="featured-visual">
+          <div class="fv-item">
+            <div class="fv-label">Principle</div>
+            <div class="fv-val">Ownership</div>
+          </div>
+          <div class="fv-item">
+            <div class="fv-label">Principle</div>
+            <div class="fv-val">Control</div>
+          </div>
+          <div class="fv-item">
+            <div class="fv-label">Principle</div>
+            <div class="fv-val">Access</div>
+          </div>
+          <div class="fv-item">
+            <div class="fv-label">Principle</div>
+            <div class="fv-val">Possession</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-num">04</div>
+        <span class="service-icon">🛡</span>
+        <h3>AI &amp; Data Governance</h3>
+        <p class="service-body">A structured readiness framework for sovereign nations navigating artificial intelligence — evaluating vendors, protecting cultural data, and building internal AI literacy on the nation's own terms.</p>
+        <div class="service-tags">
+          <span>AI Readiness</span>
+          <span>Vendor Risk</span>
+          <span>Cultural Data Protection</span>
+          <span>Workforce Training</span>
+        </div>
+        <div style="margin-top: 24px;">
+          <a href="https://assessment.tribal-technology.com" class="btn-primary" style="font-size:11px; padding: 10px 22px;">
+            Take the Free Assessment →
+          </a>
+        </div>
+      </div>
+
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-num">05</div>
+        <span class="service-icon">📋</span>
+        <h3>Policy &amp; Compliance</h3>
+        <p class="service-body">Technology policy development that reflects tribal law, not just federal standards. We help nations draft data sovereignty ordinances, procurement policies, and compliance frameworks with jurisdictional teeth.</p>
+        <div class="service-tags">
+          <span>Tribal Ordinances</span>
+          <span>HIPAA &amp; FERPA Alignment</span>
+          <span>Procurement Policy</span>
+          <span>Contract Review</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── About ────────────────────────────────────────────────────────── -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-left reveal">
+        <div class="section-eyebrow" style="margin-bottom: 16px;">
+          <div class="section-eyebrow-line"></div>
+          <span class="section-eyebrow-text">Our Mission</span>
+        </div>
+        <h2>Built for sovereignty.<br><em>Not compliance.</em></h2>
+
+        <div style="margin-top: 28px;">
+          <p class="about-body">
+            Tribal Technology was founded on a simple premise: <strong>the technology a nation deploys should strengthen its sovereignty, not quietly erode it.</strong> Too many technology vendors treat tribal governments as a procurement category — extracting data, locking in dependencies, and leaving communities less capable than before.
+          </p>
+          <p class="about-body">
+            We work differently. Every engagement begins with the nation's priorities, not a product catalog. We build internal expertise alongside every deliverable, because <strong>a nation that depends on outsiders for its own data is not fully sovereign.</strong>
+          </p>
+          <p class="about-body">
+            Our practice is grounded in Indigenous Data Sovereignty principles — OCAP®, the CARE Principles, and UNDRIP — translated into concrete, actionable technology strategy for the 21st century.
+          </p>
+        </div>
+
+        <div class="about-quote">
+          <p class="about-quote-text">"Data about a community should be governed by that community — full stop."</p>
+          <p class="about-quote-attr">Founding Principle — Tribal Technology</p>
+        </div>
+      </div>
+
+      <div class="about-right reveal reveal-delay-2">
+        <div class="principles-list">
+          <div class="principle-item">
+            <div class="principle-num">I</div>
+            <div class="principle-content">
+              <div class="principle-title">Sovereignty Is Non-Negotiable</div>
+              <p class="principle-body">Jurisdictional authority over technology systems and data is an extension of inherent tribal sovereignty. We never recommend solutions that compromise it.</p>
+            </div>
+          </div>
+          <div class="principle-item">
+            <div class="principle-num">II</div>
+            <div class="principle-content">
+              <div class="principle-title">Capacity Over Dependency</div>
+              <p class="principle-body">Every project transfers knowledge. When we leave, the nation should be more capable — not more reliant on Tribal Technology or any other outside firm.</p>
+            </div>
+          </div>
+          <div class="principle-item">
+            <div class="principle-num">III</div>
+            <div class="principle-content">
+              <div class="principle-title">Community Consent Is Ongoing</div>
+              <p class="principle-body">Technology decisions affecting community members require community input. We embed FPIC processes into our project methodology — not as a box to check, but as a governance practice.</p>
+            </div>
+          </div>
+          <div class="principle-item">
+            <div class="principle-num">IV</div>
+            <div class="principle-content">
+              <div class="principle-title">Cultural Data Is Sacred</div>
+              <p class="principle-body">Language, oral history, and ceremonial knowledge are not data assets. We treat them accordingly and help nations ensure vendors do the same.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="assessment-strip">
+          <div class="strip-text">
+            <div class="strip-label">Free Tool</div>
+            <div class="strip-title">AI Readiness Assessment</div>
+            <p class="strip-body">Score your nation across five sovereign dimensions in under 10 minutes.</p>
+          </div>
+          <a href="https://assessment.tribal-technology.com" class="btn-primary" style="white-space: nowrap; flex-shrink: 0;">
+            Start Assessment
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Contact ──────────────────────────────────────────────────────── -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">
+        <div class="section-eyebrow-line"></div>
+        <span class="section-eyebrow-text">Get In Touch</span>
+      </div>
+      <h2>Let's start a<br><em>conversation.</em></h2>
+      <p class="section-intro">Every engagement begins with listening. Tell us about your nation's priorities and we'll respond within two business days.</p>
+    </div>
+
+    <div class="contact-grid">
+      <form class="contact-form reveal" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" placeholder="Given name">
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" placeholder="Family name">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Nation / Organization</label>
+          <input type="text" placeholder="Tribal nation or organization name">
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" placeholder="you@yourtribe.gov">
+        </div>
+        <div class="form-group">
+          <label>Primary Interest</label>
+          <select>
+            <option value="" disabled selected>Select a service area</option>
+            <option>Digital Strategy &amp; Consulting</option>
+            <option>Tech Infrastructure &amp; IT</option>
+            <option>Data Architecture &amp; Repatriation</option>
+            <option>AI &amp; Data Governance</option>
+            <option>Policy &amp; Compliance</option>
+            <option>General Inquiry</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea placeholder="Tell us about your nation's current priorities, challenges, or questions..."></textarea>
+        </div>
+        <button type="submit" class="btn-primary" style="align-self: flex-start;">
+          Send Message
+        </button>
+      </form>
+
+      <div class="contact-details reveal reveal-delay-2">
+        <div class="contact-detail-item">
+          <div class="cd-icon">✉</div>
+          <div>
+            <div class="cd-label">Email</div>
+            <div class="cd-value">info@tribal-technology.com</div>
+            <div class="cd-note">General inquiries and new engagements</div>
+          </div>
+        </div>
+        <div class="contact-detail-item">
+          <div class="cd-icon">⬡</div>
+          <div>
+            <div class="cd-label">AI Assessment Tool</div>
+            <div class="cd-value">assessment.tribal-technology.com</div>
+            <div class="cd-note">Free interactive readiness assessment — no account required</div>
+          </div>
+        </div>
+        <div class="contact-detail-item">
+          <div class="cd-icon">◎</div>
+          <div>
+            <div class="cd-label">Response Time</div>
+            <div class="cd-value">Within 2 Business Days</div>
+            <div class="cd-note">All inquiries reviewed by a practice lead, not a sales team</div>
+          </div>
+        </div>
+        <div class="contact-detail-item">
+          <div class="cd-icon">🔒</div>
+          <div>
+            <div class="cd-label">Confidentiality</div>
+            <div class="cd-value">All Conversations Protected</div>
+            <div class="cd-note">We treat initial conversations as confidential — no information is shared without explicit consent</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ───────────────────────────────────────────────────────── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Tribal<span>Technology</span></div>
+    <div class="footer-center">
+      © 2026 Tribal Technology · tribal-technology.com<br>
+      <span style="font-size:11px; opacity:0.6;">Grounded in OCAP® principles · CARE Principles for Indigenous Data Governance · UNDRIP</span>
+    </div>
+    <div class="footer-links">
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="https://assessment.tribal-technology.com">Assessment</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Nav active state on scroll
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(section => {
+    if (window.scrollY >= section.offsetTop - 100) {
+      current = section.id;
+    }
+  });
+  navLinks.forEach(link => {
+    link.style.color = link.getAttribute('href') === `#${current}`
+      ? 'var(--bronze-lt)' : '';
+  });
+}, { passive: true });
+
+// Form submit
+function handleSubmit(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('button[type="submit"]');
+  btn.textContent = 'Message Sent ✓';
+  btn.style.background = 'var(--sage, #4A6741)';
+  btn.disabled = true;
+}
+</script>
+
+</body>
+</html>
